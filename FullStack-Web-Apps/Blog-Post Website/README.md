@@ -1,5 +1,5 @@
-CSCI 4131 Project: Showing off What you can Build! (Blogging Website)
-Ayub Mohamoud (MOHA1660)
+# CSCI 4131 Project: Showing off What you can Build! (Blogging Website)
+**Ayub Mohamoud**
 
 This project implements a blogging application using Node.js, Express, PUG, and MySQL, fulfilling all requirements 
 up to the A-Grade, plus the bcrypt Extra Credit.
@@ -15,7 +15,7 @@ up to the A-Grade, plus the bcrypt Extra Credit.
 `bcrypt`).
 
 
-### B. Database Setup 
+### B. Configuration & Database Setup 
 
 The server is configured to connect to your personal MySQL database via an SSH tunnel.
 
@@ -33,6 +33,14 @@ credentials (user, password) are located inside `data.js`.
 statements must be executed against the database before the server is run. I used DBeaver to execute these statements, so the
 tables should already exist in the database when testing begins.
 
+4. **Environment Variables (.env):** For security, sensitive keys and ports are stored in a `.env` file (which is ignored by Git). Ensure your `.env` contains:
+   ```text
+   PORT=4131
+   ADMIN_SECRET_PATH=csci-4131
+   DB_USER=your_username
+   DB_PASS=your_password
+   ```
+
 
 ### C. Launching the Server
 
@@ -47,4 +55,4 @@ To begin testing admin features, please do the following immediately after launc
 
 First visit http://localhost:4131/register and create any new user (e.g., username: 'anything', password: 'anything').
 
-Then visit http://localhost:4131/secret-admin-key/csci-4131 which will then sign you out and promote the user to admin
+Then visit http://localhost:4131/secret-admin-key/[YOUR_ADMIN_SECRET_PATH] (in the .env file) which will then sign you out and promote the user to admin
