@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="/css/main.css")
+        title Order Failed
+    body
+        
+        include navbar.pug
+        
+        .failure-container
+            h1 Transaction Failed
+            p Your request could not be processed by the server.
+            
+            p This typically occurs due to one of the following reasons:
+            ul
+                li **Missing Data:** You did not fill out all the required fields on the order form.
+                li **Invalid Order ID:** The order ID submitted (for cancellation or update) was not found.
+                li **Ineligible Status:** You attempted to cancel or update an order that has already been **Delivered** or **Cancelled**.
+
+            p Please use the links below to navigate back:
+            .failure-actions
+                a.button-link(href="/order") Try Placing a New Order
+                a.button-link(href="/admin/order")  View All Orders (Admin)

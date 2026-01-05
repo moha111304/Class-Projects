@@ -1,0 +1,70 @@
+extends layout.pug
+
+block title
+    title= post.title
+
+block content
+    .post-detail-wrapper
+        // Post Content
+        article.blog-post
+            h1.post-title= post.title
+            .post-meta
+                p By 
+                    strong= post.author_name
+                    |  on 
+                    span.date= new Date(post.date_posted).toLocaleDateString()
+      
+            .post-body.content-text
+                // Ensure text is properly escaped before outputting
+                pre.post-text= post.blog_text
+        
+        // Admin Management Actions
+        if isAdmin
+            .admin-actions
+                a.button.edit-button(href=`/admin/edit/${post.id}`) Edit Post
+                // DELETE (handled by update.js)
+                button.button.delete-button#delete-post-btn(data-post-id=post.id) Delete Post
+
+        hr.divider
+
+        // Comment Section
+        section.comments-section
+            h2.comments-header Comments (#{comments.length})
+            
+            // List of Existing Comments
+            div.comment-list#comments-list
+                if comments.length
+                    each comment in comments
+                        .comment-item(data-comment-id=comment.id)
+                            .comment-header
+                                // If user_id is null, it"s a logged-out user or guest
+                                strong= comment.commenter_name || "Guest" 
+                                span.comment-date= new Date(comment.time_made).toLocaleString()
+                            
+                            p.comment-content= comment.content
+                            
+                            // Conditional Delete Button 
+                            // Only allow deletion if the current user is an admin OR the comment"s author
+                            if isAdmin || (isLoggedIn && user.id === comment.user_id)
+                                button.delete-comment-btn(data-comment-id=comment.id) Delete
+                else
+                    p.no-comments Be the first to comment!
+
+            hr
+
+            // Comment Submission Form
+            div.comment-form-container
+                h3 Leave a Comment
+                
+                form#comment-form(data-post-id=post.id)
+                    if !isLoggedIn
+                        label(for="guest_name") Name:
+                        input#guest_name(type="text" name="guest_name" required)
+                    
+                    label(for="content") Comment:
+                    textarea#comment-content(name="content" rows="4" required)
+
+                    button.button.submit-comment-button(type="submit") Submit Comment
+
+block scripts
+    script(src="/js/update.js")

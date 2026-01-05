@@ -1,0 +1,25 @@
+nav.navbar
+    a.navbar-brand(href="/") 
+        img.logo-image(src="/images/logo.jpeg" alt="My Blog Logo")
+    
+    // Primary navigation links
+    ul.nav-links
+        li.nav-item
+            a.nav-link(href="/") Home
+        li.nav-item
+            a.nav-link(href="/posts") Browse Posts
+
+    // Authentication/Admin Links
+    div.auth-admin-links
+        if isAdmin
+            li.nav-item.admin-link
+                a.nav-link(href="/admin/posts") Admin Dashboard
+            li.nav-item.create-post-link
+                a.nav-link(href="/admin/create") Create Post
+        
+        if isLoggedIn
+            li.nav-item
+                a.nav-link(href="/logout") Logout
+        else
+            li.nav-item
+                a.nav-link(href="/login") Login

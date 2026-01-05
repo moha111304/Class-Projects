@@ -1,0 +1,45 @@
+extends layout.pug
+
+block title
+    title User Login
+
+block content
+    .auth-container.content-columns
+        // Login Form
+        .column.login-column
+            h1 User Login
+            
+            // Display any login errors
+            if success
+                div.success-message
+                    | #{success}
+
+            if error
+                div.error-message
+                    | #{error}
+
+            form#login-form(action="/login" method="POST")
+                .form-group
+                    label(for="username") Username:
+                    input#username(type="text" name="username" required)
+
+                .form-group
+                    label(for="password") Password:
+                    input#password(type="password" name="password" required)
+                
+                // Optional: Extra credit cookie requirement
+                .form-group
+                    input#remember(type="checkbox" name="remember_me" value="true")
+                    label.inline-label(for="remember") Remember Me
+
+                button.button.login-button(type="submit") Log In
+
+        //  Account Creation
+        .column.register-column.description-box
+            h2 New User?
+            p Create an account to participate in discussions and leave comments on our posts.
+            
+            form#register-form(action="/register" method="POST")
+                h3 Register
+
+                a.button.register-btn(href="/register") Create Account

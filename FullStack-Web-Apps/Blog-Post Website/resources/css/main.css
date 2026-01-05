@@ -1,0 +1,595 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc; /* Light background */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Base Headings */
+h1 {
+    font-family: 'Roboto Mono', monospace; /* Using custom font for impact */
+    text-align: center;
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #3f51b5;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.4em;
+    margin-top: 20px;
+}
+
+/* Emphasis tags */
+strong {
+    color: #3f51b5;
+    font-weight: 700;
+}
+
+cite {
+    font-style: italic;
+    color: #607d8b;
+}
+
+/* General Layout & Buttons */
+main#content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #5c6bc0;
+}
+
+
+/* Navigation Bar Styles navbar.pug */
+
+.navbar {
+    background-color: #3f51b5;
+    display: flex;
+    justify-content: space-between; /* Space out logo and links */
+    align-items: center;
+    height: 70px;
+    padding: 0 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand img.logo-image {
+    height: 40px; /* Adjust based on your logo image size */
+    width: auto;
+}
+
+.nav-links, .auth-admin-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .nav-item, .auth-admin-links .nav-item {
+    margin: 0 10px;
+}
+
+.nav-links .nav-item a, .auth-admin-links .nav-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.nav-links .nav-item a:hover, .auth-admin-links .nav-item a:hover {
+    background-color: #5c6bc0;
+}
+
+.admin-link a {
+    background-color: #ff9800; /* Distinct color for admin link */
+    color: #333;
+    font-weight: 700;
+}
+.admin-link a:hover {
+    background-color: #ffb74d;
+}
+
+
+/* About Page Styles */
+
+.page-header {
+    text-align: center;
+}
+#website-title {
+    margin-top: 0;
+    font-size: 3em;
+    color: #3f51b5;
+}
+
+.content-columns {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    align-items: flex-start;
+}
+
+.column {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.description-box p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.service-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.staff-section {
+    padding: 40px 0;
+}
+
+.staff-section h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.staff-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3f51b5;
+    margin-bottom: 10px;
+}
+
+.staff-member h3 {
+    margin: 5px 0;
+}
+.staff-member p.staff-title {
+    color: #607d8b;
+    font-style: italic;
+}
+
+
+/* Post List Styles */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.list-header h1 {
+    margin: 0;
+    text-align: left;
+}
+
+.posts-list-container {
+    padding: 20px 0;
+}
+
+.post-preview {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3f51b5;
+}
+
+.preview-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.preview-title a:hover {
+    color: #3f51b5;
+    text-decoration: underline;
+}
+
+.preview-meta {
+    font-size: 0.9em;
+    color: #607d8b;
+    margin-bottom: 10px;
+}
+
+.read-more {
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.admin-actions-mini {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.admin-actions-mini .mini-edit {
+    background-color: #607d8b;
+}
+
+.admin-actions-mini .mini-delete {
+    background-color: #e57373; /* Red color for delete */
+}
+
+/* Pagination */
+.pagination-controls {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-info {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #3f51b5;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #607d8b;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+
+/* Post Detail Styles */
+
+.post-detail-wrapper {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.blog-post {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 2.5em;
+    text-align: left;
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #607d8b;
+    margin-bottom: 20px;
+}
+
+/* style for multi-line requirement */
+.post-body pre.post-text {
+    font-family: inherit;
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-actions .edit-button {
+    background-color: #607d8b;
+}
+
+.admin-actions .delete-button {
+    background-color: #e57373;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 30px 0;
+}
+
+
+/* Comment Section */
+
+.comments-section h2 {
+    text-align: left;
+    font-size: 1.6em;
+    border-bottom: 2px solid #3f51b5;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.comment-list {
+    margin-bottom: 20px;
+}
+
+.comment-item {
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc;
+    position: relative;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-header strong {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-right: 10px;
+}
+
+.comment-header span.comment-date {
+    font-size: 0.8em;
+    color: #607d8b;
+}
+
+p.comment-content {
+    margin: 5px 0 0 0;
+    font-size: 1em;
+}
+
+.delete-comment-btn {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.comment-form-container h3 {
+    margin-top: 10px;
+    font-size: 1.4em;
+    color: #3f51b5;
+}
+
+#comment-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+#comment-form input[type="text"],
+#comment-form textarea {
+    width: 98%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.submit-comment-button {
+    margin-top: 15px;
+    padding: 10px 30px;
+}
+
+
+
+/* Post Form Styles */
+
+.form-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper h1 {
+    text-align: left;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #3f51b5;
+}
+
+#post-form {
+    /* Override global form style */
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.form-actions .submit-button {
+    background-color: #3f51b5;
+}
+
+.form-actions .cancel-button {
+    background-color: #e0e0e0;
+    color: #2c3e50;
+    border: 1px solid #ccc;
+}
+
+#prefill-btn {
+    background-color: #bbdefb;
+    color: #2c3e50;
+}
+
+
+/* Message Box Styles */
+
+/* Error Style */
+
+.error-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #cc0052;
+    background-color: #fff0f6; 
+    border: 1px solid #ffadd2; 
+    display: none; 
+}
+
+/* Success Style */
+
+.success-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #0c6a23;
+    background-color: #d4edda; 
+    border: 1px solid #c3e6cb; 
+    font-weight: 500;
+}
+
+
+/* Error Pages (404.pug, 500.pug) */
+
+.not-found-container,
+.error-container {
+    padding: 50px;
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-container h1,
+.error-container h1 {
+    font-size: 4em;
+    color: #e57373; /* Soft red for errors */
+    margin-top: 0;
+}
+
+.error-detail {
+    font-size: 1.2em;
+    color: #607d8b;
+    margin-bottom: 30px;
+}
+
+.home-link {
+    background-color: #3f51b5;
+}
+
+
+/* Queries */
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 0 20px;
+    }
+    .nav-links, .auth-admin-links {
+        gap: 0;
+    }
+    
+    .content-columns {
+        flex-direction: column;
+    }
+
+    .column {
+        padding: 20px;
+    }
+
+    .form-wrapper {
+        margin: 20px;
+        padding: 20px;
+    }
+}

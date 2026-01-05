@@ -1,0 +1,11 @@
+# Dependency folders
+node_modules/
+
+# Environment secrets
+.env
+
+# Infrastructure scripts
+tunnel.js
+
+# OS files
+.DS_Store

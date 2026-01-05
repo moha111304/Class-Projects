@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        //- title is inserted by the page extending the layout
+        block title
+        link(rel="stylesheet", href="/css/main.css")
+        
+    body
+        include navbar.pug
+        main#content
+            block content
+            
+        //- Add any scripts here
+        block scripts

@@ -1,0 +1,15 @@
+extends layout.pug
+
+block title
+    title Server Error
+
+block content
+    .error-container
+        h1 500 - Server Error
+        
+        if message
+            p.error-detail= message
+        else
+            p.error-detail An unexpected error occurred on the server. Please try again later.
+        
+        a.button.home-link(href="/") Go to Homepage

@@ -1,0 +1,697 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* Navigation Bar */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #3f51b5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+}
+
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul.navbar li a:hover {
+    background-color: #5c6bc0;
+    text-decoration: underline;
+}
+
+/* Headings */
+h1 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    font-size: 3em;
+    color: #2c3e50;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* About Us Page Layout */
+.about-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image-container,
+.about-text-container {
+    flex-basis: 45%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-text-container {
+    background-color: #ffffff;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.staff-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make images circular */
+    object-fit: cover;
+    border: 3px solid #3f51b5;
+    margin-bottom: 10px;
+}
+
+.staff-member h3 {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+
+.staff-member p {
+    color: #607d8b;
+    font-size: 0.9em;
+}
+
+/* Emphasis tags */
+strong {
+    color: #3f51b5;
+}
+
+em {
+    color: #607d8b;
+}
+
+/* Order Tracking Page */
+.confirmation-box,
+.order-details-box {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmation-box h2 {
+    color: #3f51b5;
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.confirmation-box p {
+    font-style: italic;
+    color: #607d8b;
+}
+
+.order-details-box {
+    background-color: #e3f2fd;
+}
+
+.order-details-box h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.order-details-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.order-details-box td {
+    padding: 10px 0;
+    border-bottom: 1px solid #bbdefb;
+    text-align: left;
+}
+
+.order-details-box tr:last-child td {
+    border-bottom: none;
+}
+
+.order-details-box td:first-child {
+    font-weight: bold;
+    color: #2c3e50;
+    width: 35%;
+}
+
+.order-details-box td:last-child {
+    color: #455a64;
+    width: 65%;
+}
+
+/* Orders Management Page */
+.orders-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+select {
+    padding: 10px 15px;
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    width: 250px;
+    max-width: 40%;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #5c6bc0;
+}
+
+.searched-for-box {
+    background-color: #e3f2fd;
+    padding: 15px 20px;
+    margin: 20px auto;
+    border-left: 5px solid #3f51b5;
+    border-radius: 5px;
+    color: #2c3e50;
+    max-width: 800px;
+}
+
+.searched-for-box p {
+    margin: 5px 0;
+}
+
+/* Orders Table */
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+}
+
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eceff1;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Empyty Criteria Box */
+.empty-criteria-box {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffe0b2;
+    border: 1px solid #ffb74d;
+    border-radius: 8px;
+    text-align: center;
+    color: #e65100;
+}
+
+.empty-criteria-box strong {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty-criteria-box em {
+    font-style: normal;
+    color: #fb8c00;
+}
+
+/* 404 Page */
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.not-found-container a {
+    font-size: 3em;
+    color: #2c3e50;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+}
+
+.not-found-container a:hover {
+    text-decoration: underline;
+}
+
+/* --- Homework 3 Additions --- */
+
+/* Order Form Styling (Order.html) */
+
+.form-actions-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.prefill-button {
+    padding: 10px 20px;
+    background-color: #bbdefb;
+    color: #2c3e50;
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.prefill-button:hover {
+    background-color: #90caf9;
+}
+
+.order-form-container {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-form-container form {
+    /* Override flex styling inherited from generic 'form' selector */
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.order-form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.order-form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.order-form-container input[type="text"],
+.order-form-container textarea,
+.order-form-container select {
+    /* Input styling specific to order form */
+    width: 95%; /* Adjust width to fit container better */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.date-display-box {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    min-height: 40px; 
+    line-height: 1.2;
+    color: #444;
+}
+
+
+/* Specific styling for the Total Cost line */
+.total-cost-display {
+    margin: 15px 0;
+}
+
+#totalCostLabel {
+    color: #3f51b5;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#totalCost {
+    /* Style for the actual cost amount ($0.00) */
+    color: #3f51b5;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #5c6bc0;
+}
+
+/* Visibility toggling for JavaScript */
+.hidden {
+    display: none !important;
+}
+
+/* Order Success/Failure Pages */
+.success-container,
+.failure-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-container h1 {
+    font-size: 2.5em;
+    color: #3f51b5;
+    margin-bottom: 10px;
+}
+
+.success-container p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.success-container em {
+    font-style: italic;
+    color: #607d8b;
+}
+
+/* Styling for the Track Your Order button */
+.success-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 25px;
+    background-color: #3f51b5; 
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.success-button:hover {
+    background-color: #5c6bc0;
+}
+
+/* Failure Page Specific List Styling */
+.failure-container ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+.failure-container li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-size: 1.05em;
+}
+
+.failure-container li strong {
+    color: #4a4a4a;
+    font-size: 0.95em;
+}
+
+/* Styling for the Link Buttons at the bottom of Failure Page */
+.failure-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.failure-actions a.button-link {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.failure-actions a.button-link:first-child {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.failure-actions a.button-link:last-child {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    border: 1px solid #ccc;
+}
+
+.failure-actions a.button-link:first-child:hover {
+    background-color: #5c6bc0;
+}
+
+.failure-actions a.button-link:last-child:hover {
+    background-color: #e0e0e0;
+}
+
+/* Two-Column Tracking Page Layout */
+.tracking-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.tracking-left-column,
+.tracking-right-column {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-left-column .confirmation-box {
+    margin: 0 0 20px 0;
+}
+
+/* Order Management Section */
+.order-management-box h2 {
+    margin-top: 0;
+    text-align: left;
+    color: #2c3e50;
+    font-size: 1.5em;
+}
+
+.timer-label {
+    margin-bottom: 5px;
+    color: #607d8b;
+    font-size: 0.9em;
+}
+
+.status-timer {
+    font-size: 1.3em; 
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 20px;
+}
+
+/* Tracking Action Buttons */
+.tracking-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tracking-buttons .inline-form {
+    display: contents;
+}
+
+.tracking-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3f51b5;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.tracking-buttons button:hover {
+    background-color: #5c6bc0; 
+}
+
+/* Update Shipping Form Styles (when visible) */
+.update-shipping-form-hidden {
+    display: none; 
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+    
+    /* Ensure form fields fill available width and stack */
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.update-shipping-form-hidden.show {
+    display: flex; /* Makes the form visible */
+    flex-direction: column;
+}
+
+.update-shipping-form-hidden form {
+    /* Override global form flex settings */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    width: 100%;
+}
+
+.update-shipping-form-hidden textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.update-shipping-form-hidden .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.update-shipping-form-hidden .form-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.update-shipping-form-hidden .update-submit-button {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.update-shipping-form-hidden .cancel-update-button {
+    background-color: #e0e0e0;
+    color: #2c3e50;
+}
+
+/* API Message Box */
+.api-message {
+    /* Ensure the box sits above the form */
+    width: 90%; 
+    max-width: 1000px;
+    margin: 20px auto; 
+    padding: 15px 25px; 
+    border-radius: 6px;
+    font-size: 1.05em;
+    line-height: 1.4;
+}
+
+/* Success State Blue Box */
+.api-success {
+    background-color: #e6f7ff; 
+    border: 1px solid #90caf9; 
+    color: #3f51b5; 
+}
+
+/* Error State Red Box */
+.api-error {
+    background-color: #fff0f6; 
+    border: 1px solid #ffadd2; 
+    color: #cc0052; 
+}

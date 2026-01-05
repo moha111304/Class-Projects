@@ -1,0 +1,52 @@
+extends layout.pug
+
+block title
+    title Blog Archives
+
+block content
+    .list-header
+        h1 Blog Archives
+        // Admin link to create new post
+        if isAdmin
+            a.button.create-button(href=`/admin/create`) + Create New Post
+            
+    // Post List Section
+    section.posts-list-container
+        if posts.length
+            each post in posts
+                article.post-preview
+                    h2.preview-title
+                        a(href=`/posts/${post.id}`)= post.title
+                    
+                    .preview-meta
+                        p Posted on 
+                            span.date= new Date(post.date_posted).toLocaleDateString()
+                    
+                    p.preview-text= post.preview_text + (post.blog_text.length > 300 ? "..." : "")
+                    
+                    // Link to view the full post
+                    a.read-more(href=`/posts/${post.id}`) Read More
+                    
+                    // Quick Admin/Edit buttons on the list
+                    if isAdmin
+                        .admin-actions-mini
+                            a.button.mini-edit(href=`/admin/edit/${post.id}`) Edit
+                            button.button.mini-delete(data-post-id=post.id) Delete
+
+            .pagination-controls
+                if currentPage > 1
+                    a.button.prev-page(href=`/posts?page=${currentPage - 1}`) &larr; Previous Page
+                
+                // Display current page number
+                span.page-info Page #{currentPage}
+
+                // Placeholder for next page logic (requires total posts count from Express)
+                // Assuming more pages exist for now. Server logic must confirm this.
+                if totalPosts > currentPage * limit
+                    a.button.next-page(href=`/posts?page=${currentPage + 1}`) Next Page &rarr;
+                    
+        else
+            p.empty-message No Blog Posts Found.
+
+block scripts
+    script(src="/js/update.js")

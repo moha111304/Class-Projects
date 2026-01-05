@@ -1,0 +1,49 @@
+extends layout.pug
+
+block title
+    title Blog - About Us
+
+block content
+    header.page-header
+        h1#website-title Connect With Others
+
+    .content-columns
+        .column.column-image
+            img(src="/images/BlogImage.jpeg", alt="A image representing a blog.")
+
+        .column.column-description
+            div.description-box
+                p   
+                    | Welcome to the Blog, just the Blog, no cool name over here. 
+                    | You can view this as your place to post stuff about internet 
+                    | programming ando or other stuff. We believe in the ability of
+                    | the web, to make blogs cool again maybe potentially. 
+                    
+                p
+                    | This website is a project that represents the totality of what I
+                    | learned in CSCI 4131. It demonstrates my ability to make wesbites
+                    | starrting from front-end presentation (HTML, CSS, PUG) to a 
+                    | robust back-end (ExpressJS, Node, and MySQL).
+
+                ul.service-list
+                    li Tech Stack Used: ExpressJS, PUG, MySQL
+                    li Focus: Full-Stack Web Development
+                    li Project Goal: Building a blog
+
+    .staff-section
+        h2 Meet the Team Behing The Blog
+        .staff-grid
+            .staff-member
+                img.staff-photo(src="/images/batman.jpeg", alt="The Batman")
+                h3 The Batman
+                p.staff-title CEO
+            
+            .staff-member
+                img.staff-photo(src="/images/LuciusFox.jpeg", alt="Lucius Fox")
+                h3 Lucius Fox
+                p.staff-title Lead Developer
+            
+            .staff-member
+                img.staff-photo(src="/images/Who.jpeg", alt="CSCI 4131 Student")
+                h3 Ayub Mohamoud
+                p.staff-title Designer

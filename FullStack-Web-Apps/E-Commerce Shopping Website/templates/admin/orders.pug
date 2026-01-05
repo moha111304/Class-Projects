@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet" href="/css/main.css")
+        title Orders Management
+    body
+        include ../navbar.pug
+
+        h1 Orders Management
+
+        form.search-form(method="get" action="/admin/orders")
+            input(type="text" name="query" placeholder="Search Order-Placer..." value=escapeHtml(query))
+            select(name="status")
+                option(value="") All Statuses
+                option(value="Placed" selected=(statusFilter === "placed")) Placed
+                option(value="Shipped" selected=(statusFilter === "shipped")) Shipped
+                option(value="Delivered" selected=(statusFilter === "delivered")) Delivered
+                option(value="Cancelled" selected=(statusFilter === "cancelled")) Cancelled
+            button(type="submit") Search
+
+        .searched-for-box
+            p Searched For Status: 
+                strong= escapeHtml(statusFilter) || "All"
+            p Searched For Sender: 
+                strong= escapeHtml(query) || "Any"
+
+        if orders && orders.length
+            table.orders-table
+                thead
+                    tr
+                        th ID
+                        th Status
+                        th From
+                        th Product
+                        th Cost
+                tbody
+                    each order in orders
+                        tr
+                            td
+                                a(href="/tracking/" + order.id)= order.id
+                            td= escapeHtml(order.status)
+                            td= escapeHtml(order.from)
+                            td= escapeHtml(order.product)
+                            td= typesetDollars(order.cost)
+        else
+            .empty-criteria-box
+                strong No Orders Found
+                br
+                em Adjust your search criteria

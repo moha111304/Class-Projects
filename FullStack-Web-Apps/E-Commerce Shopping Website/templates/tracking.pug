@@ -1,0 +1,111 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet" href="/css/main.css")
+        title Order Tracking
+    body
+
+        include navbar.pug
+
+        h1 Order Tracking
+
+        - 
+            let confirmationBox = ''; 
+            let statusMsg = ''; 
+            let buttonsHtml = '';
+            let countdownJs = '';
+            let status = order.status;
+            
+            if (status === "Placed") {
+                confirmationBox = `
+                    <div class="confirmation-box">
+                        <h2>Your order is confirmed and being prepared!</h2>
+                        <p>We've received your order and our team is getting it ready for shipment.</p>
+                    </div>`;
+                statusMsg = `<span id="countdown-timer" data-order-date="${order.order_date}"></span>`;
+                buttonsHtml = `
+                    <div class="tracking-buttons" id="action-buttons">
+                        <button type="button" class="cancel-button" id="cancel-order-btn" data-order-id="${order.id}">Cancel Order</button>
+                        <button type="button" class="update-shipping-button" onclick="showUpdateForm()">Update Shipping</button>
+                    </div>`;
+                countdownJs = '<script src="/js/update.js"></script>';
+            } else if (status === "Shipped") {
+                confirmationBox = `<div class="confirmation-box"><h2>Your order has shipped!</h2><p>It is currently on its way to your specified address.</p></div>`;
+                statusMsg = 'Order Shipped';
+            } else if (status === "Delivered") {
+                confirmationBox = `<div class="confirmation-box"><h2>Your order has been delivered!</h2><p>Enjoy your new frames!</p></div>`;
+                statusMsg = 'Order Delivered';
+            } else if (status === "Cancelled") {
+                confirmationBox = `<div class="confirmation-box cancelled"><h2>Order Cancelled</h2><p>This order was successfully cancelled and will not be shipped.</p></div>`;
+                statusMsg = 'Order Cancelled';
+            }
+
+        .tracking-wrapper
+            .tracking-left-column
+                | !{confirmationBox}
+
+                .order-details-box
+                    h2 Order Details
+                    table
+                        tr
+                            td Order ID:
+                            td= escapeHtml(order.id)
+                        tr
+                            td Product:
+                            td= escapeHtml(order.product)
+                        tr
+                            td Quantity:
+                            td= escapeHtml(order.quantity)
+                        tr
+                            td Status:
+                            td= escapeHtml(order.status)
+                        tr
+                            td Shipping:
+                            td= escapeHtml(order.shipping)
+                        tr
+                            td Cost:
+                            td= typesetDollars(order.cost)
+                        tr
+                            td Order Date:
+                            td= escapeHtml(order.order_date)
+                        tr
+                            td Shipping To:
+                            td
+                                pre= escapeHtml(order.address)
+
+            .tracking-right-column
+                .order-management-box
+                    h2 Order Management
+                    p.timer-label Time Remaining Until Order Ships:
+                    .status-timer
+                        | !{statusMsg}
+                    
+                    | !{buttonsHtml}
+                    // This is where my JS will insert error messages for cancel
+                    div#api-error-message.error-message
+                
+                // Update Shipping Form
+                div#update-shipping-container.update-shipping-form-hidden
+                    form.update-form(action="/update_shipping" method="post")
+                        input(type="hidden" name="id" value=order.id)
+                        
+                        label(for="address") Delivery Address:
+                        textarea(name="address" rows="4" required)= escapeHtml(order.address)
+
+                        .radio-group
+                            input#shippingFlat(type="radio" name="shipping" value="Flat Rate" required checked=(order.shipping === 'Flat Rate'))
+                            label(for="shippingFlat") Flat Rate
+
+                            input#shippingGround(type="radio" name="shipping" value="Ground" checked=(order.shipping === 'Ground'))
+                            label(for="shippingGround") Ground
+
+                            input#shippingExpedited(type="radio" name="shipping" value="Expedited" checked=(order.shipping === 'Expedited'))
+                            label(for="shippingExpedited") Expedited
+
+                        .form-actions
+                            button.update-submit-button(type="submit") Update Shipping
+                            button.cancel-update-button(type="button" onclick="hideUpdateForm()") Cancel
+
+        if countdownJs
+            | !{countdownJs}

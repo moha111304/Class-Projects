@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet" href="/css/main.css")
+        title In The Box
+    body
+        
+        include navbar.pug 
+
+        h1 Frames In The Box
+
+        .about-content-wrapper
+            .about-image-container
+                img(src="/images/glasses.jpeg" alt="Frames In A Box" width="400")
+
+            .about-text-container
+                p
+                    strong Frames In The Box 
+                    | isn't just any ordinary start-up because our technology is already
+                    | ahead of leading competitors. With our patented 
+                    em Super Lenses 
+                    | which work for all types of people without the need for
+                    | your specific prescription, whether you have:
+
+                ul
+                    li Myopia (Nearsightedness)
+                    li Hyperpia (Farsightedness)
+                    li Astigmatism
+                    li Amblyopia (Lazy Eye)
+
+                p
+                    | Your lenses automatically adjust to your vision in real time, offering crisp clarity no matter where
+                    | you're looking. Say goodbye to multiple pairs of glasses or costly custom prescriptions—one pair
+                    | is all you need. With 
+                    strong Frames In The Box
+                    | , the future of eyewear is already on your face.
+
+        .staff-section
+            h2 The People Behind the Lenses
+            .staff-grid
+                .staff-member
+                    img(src="/images/batman.jpeg" alt="The Batman")
+                    h3 The Batman
+                    p CEO
+                .staff-member
+                    img(src="/images/LuciusFox.jpeg" alt="Lucius Fox" )
+                    h3 Lucius Fox
+                    p Lead Engineer
+                .staff-member
+                    img(src="/images/Who.jpeg" alt="Lens Technichian")
+                    h3 Ayub Mohamoud
+                    p Head of Lenses

@@ -1,0 +1,38 @@
+extends layout.pug
+
+block title
+    title= isEdit ? "Edit Post" : "Create New Post"
+
+block content
+    .form-wrapper
+        // Determine form title and target based on whether a "post" object was passed by Express
+        - var isEdit = post && post.id;
+        - var formTitle = isEdit ? `Edit Post: ${post.title}` : "Create New Post";
+        - var formAction = isEdit ? `/api/posts/${post.id}` : "/api/posts"; // Use API for consistency
+        - var httpMethod = isEdit ? "PUT" : "POST"; // Use PUT/POST for semantic correctness
+        
+        h1= formTitle
+
+        form#post-form(data-method=httpMethod data-post-id=isEdit)
+            
+            // Display error messages from the server here
+            div#form-errors.error-message
+
+            .form-group
+                label(for="title") Title:
+                input#title(type="text" name="title" value=isEdit ? post.title : "" required)
+                
+            .form-group
+                label(for="blog_text") Post Content:
+                textarea#blog_text(name="blog_text" rows="15" required)= isEdit ? post.blog_text : ""
+
+            .form-actions
+                button.button.submit-button(type="submit")= isEdit ? "Update Post" : "Publish Post"
+                // Button to cancel and return to admin list
+                a.button.cancel-button(href="/admin/posts") Cancel
+                
+                // Prefill Button for easy testing
+                button.button#prefill-btn(type="button") Prefill (Test)
+
+block scripts
+    script(src="/js/blog_post.js")

@@ -1,0 +1,68 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet" href="/css/main.css")
+        title Place an Order
+    body
+        
+        include navbar.pug
+
+        h1 Place an Order
+
+        .form-actions-top
+            button#prefillButton.prefill-button(type="button") Prefill Form
+
+        .order-form-container
+            form#orderForm(action="/order" method="POST") 
+                
+                .form-group
+                    label(for="product") Select a Product:
+                    select#product(required="" name="product")
+                        option(value="") -- Select a Pair of Glasses --
+                        option(data-cost="110.00" value="Vintage Silver-Grey Browline") Vintage Silver-Grey Browline ($110.00)
+                        option(data-cost="75.00" value="Silver Metal Square") Silver Metal Square ($75.00)
+                        option(data-cost="50.00" value="Matte Black Aviator") Matte Black Aviator ($50.00)
+                        option(data-cost="150.00" value="The Sentinel Bifocal") The Sentinel Bifocal ($150.00)
+                        option(data-cost="85.00" value="The Aviator Classic") The Aviator Classic ($85.00)
+
+                #quantityGroup.form-group.hidden
+                    label(for="quantity") Quantity:
+                    input#quantity(type="number" name="quantity" value="1" min="1")
+
+                h2 Order Summary
+
+                .total-cost
+                    | Total Cost: 
+                    span#totalCost $0.00 
+                    br
+
+                .form-group
+                    label(for="buyer") From:
+                    input#buyer(required="" name="buyer" type="text")
+
+                .form-group
+                    label(for="address") Recipient Name and Address:
+                    textarea#address(required="" rows="4" name="address")
+                    
+                .form-group
+                    label Select a Shipping Option:
+                    .radio-group
+                        input#shippingFlat(required="" value="Flat Rate" name="shipping" type="radio")
+                        label(for="shippingFlat") Flat Rate
+
+                        input#shippingGround(value="Ground" name="shipping" type="radio")
+                        label(for="shippingGround") Ground
+
+                        input#shippingExpedited(value="Expedited" name="shipping" type="radio")
+                        label(for="shippingExpedited") Expedited
+
+                .form-group
+                    label(for="orderDateDisplay") Order Date:
+                    #orderDateDisplay.date-display-box
+                
+                .form-actions
+                    button.submit-button(type="submit") Place Order
+                    // The JavaScript file
+        
+        script(src="/js/order.js")
