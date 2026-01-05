@@ -139,7 +139,7 @@ app.get(`/admin/${process.env.ADMIN_ORDER_PATH}`, async (req, res) => {
         
         const filteredOrders = await data.getOrders(query, statusFilter); 
 
-        res.render(`/admin/${process.env.ADMIN_ORDER_PATH}`, {
+        res.render('admin/orders', {
             orders: filteredOrders,
             query: query,
             statusFilter: statusFilter,
